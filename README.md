@@ -1,76 +1,66 @@
-# MoodFlicks 🎬
+# MoodFlicks 🎬 — Content & Mood-Based Movie Recommendation Engine
 
-A content-based movie recommendation system that suggests movies based on either a movie you like or your current mood.
+MoodFlicks is an interactive web application that implements content-based filtering pipelines to suggest films matching specific metadata features or active user emotional moods.
 
-## Features
+🚀 **Live Deployment:** [Launch MoodFlicks Live App](https://moodflicks.streamlit.app/) *(Update with your exact Streamlit link if different!)*
 
-- **Movie-based Recommendations**: Select a movie you enjoyed, and get 5 similar movies based on content similarity (genres, cast, keywords, etc.)
-- **Mood-based Recommendations**: Choose your current mood (Happy, Sad, Excited, Stressed), and get movie suggestions matched to that vibe
-- Built with a clean, interactive Streamlit UI
+---
 
-## How It Works
+## ✨ Features
 
-MoodFlicks uses **content-based filtering** to recommend movies:
+* **Content-Based Similarity Search:** Select a seed title to dynamically extract the top 5 closest matched films based on feature vector alignments.
+* **Algorithmic Mood Mapping:** Matches real-time emotional inputs (Happy, Sad, Excited, Stressed) to specific target genre distributions before running content recommendation logic.
+* **Streamlit UI Interface:** Completely responsive interface allowing fluid content selection and rapid prediction outputs.
 
-1. Movie metadata (genres, cast, crew, keywords) is combined into a single "tags" field for each movie
-2. `CountVectorizer` converts these tags into numerical vectors (bag-of-words, top 5000 features, English stop words removed)
-3. **Cosine similarity** is computed between all movie vectors to measure how similar any two movies are
-4. For a given movie, the top 5 most similar movies (by cosine similarity score) are returned
+---
 
-For mood-based recommendations, a movie is randomly sampled from genres associated with the selected mood (e.g., "Happy" → Comedy, Animation, Family), and that movie is then used as a seed for content-based recommendations.
+## 🧠 How the Machine Learning Works
 
-## Tech Stack
+The recommendation pipeline converts qualitative text metadata into a dense spatial vector landscape:
 
-- **Python**
-- **Pandas** – data handling
-- **Scikit-learn** – `CountVectorizer` and `cosine_similarity`
-- **Streamlit** – web app UI
-- **Pickle** – model/data serialization
+1. **Feature Engineering:** Combines movie genres, cast lists, crew metrics, and keywords into a single consolidated string array ("tags") for every dataset asset.
+2. **Text Vectorization:** Utilizes `CountVectorizer` to apply a Bag-of-Words text feature transformation (top 5000 feature tracking, automatic English stop-word filtering).
+3. **Cosine Similarity Evaluation:** Generates a full spatial similarity matrix computing the mathematical cosine angle between all dense movie feature vectors.
+4. **Seed Execution for Moods:** For mood parameters, the system randomly samples an optimized seed title from matching genre domains (e.g., *Happy* → Comedy, Animation, Family) to feed the core content matrix.
 
-## Project Structure
+---
 
-```
-MoodFlicks/
-├── app.py                 # Streamlit app
-├── vectorizer.ipynb        # Notebook: vectorization, similarity computation, EDA
-├── movies.pkl              # Processed movie data with tags
-├── movies_old.pkl          # Original movie data (used for genre-based mood filtering)
-├── similarity.pkl          # Precomputed cosine similarity matrix
-├── requirements.txt
-└── README.md
-```
+## 🛠️ Tech Stack & Dependencies
 
-## Installation & Usage
+* **Core Language:** Python
+* **Data Engineering:** Pandas
+* **Machine Learning Modules:** Scikit-Learn (`CountVectorizer`, `cosine_similarity`)
+* **Deployment & UI UI Layer:** Streamlit Architecture
+* **Model Serialization:** Pickle Utility Engines
 
-1. Clone the repository
+## ⚙️ Installation & Usage
+
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/prachikakkad/MoodFlicks.git
 cd MoodFlicks
 ```
 
-2. Install dependencies
+### 2. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Run the app
+### 3. Run the Local Development Instance
 ```bash
 streamlit run app.py
 ```
-
-4. Open your browser at `http://localhost:8501`
-
-## Future Improvements
-
-- Add movie poster images via TMDB API
-- Improve mood-genre mapping with more nuanced categories
-- Add hybrid filtering (combine content-based with collaborative filtering)
-- Deploy on Streamlit Cloud for live access
-
-## Author
-
-Prachi Kakkad
+Open your browser and navigate to `http://localhost:8501` to view your instance.
 
 ---
 
-*Built as part of a Data Science / AI-ML learning journey, following [BunkBuddy](https://bunkbuddy-z76j.onrender.com/) as the first deployed project.*
+## 🎯 Future Optimization Pathways
+
+* Integrate live movie poster assets by mapping production outputs to the external TMDB API layer.
+* Transition core architecture into an advanced hybrid filtering framework (combining collaborative user weights with text-similarity profiles).
+
+---
+
+## 👤 Author
+**Prachi Kakkad**  
+*Built as a core milestone within a self-driven Data Science and AI-ML curriculum, following the initial BunkBuddy deployment pipeline.*
